@@ -4,10 +4,14 @@ import {
   Text,
   Tabs,
   Box,
-  Icon,
   SegmentGroupValueChangeDetails,
 } from '@chakra-ui/react';
-import { LuSun, LuShieldCheck, LuLayoutDashboard } from 'react-icons/lu';
+import {
+  LuSun,
+  LuShieldCheck,
+  LuLayoutDashboard,
+  LuMenu,
+} from 'react-icons/lu';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TowerIcon from '../assets/react.svg';
 import { ColorModeButton } from './ui/color-mode';
@@ -25,13 +29,27 @@ const NavBar = () => {
   return (
     <HStack w="100%" justify="space-between" p="3">
       <HStack flex="1" gap="4" marginLeft="1">
-        <Image src={TowerIcon} boxSize="15" />
+        <Box
+          as={LuMenu}
+          boxSize="7"
+          hideFrom="lg"
+          cursor="pointer"
+          onClick={() => console.log('Drawer opened')}
+        />
+
+        <Image src={TowerIcon} boxSize="15" hideBelow="lg" />
+
         <Text textStyle="xl" fontWeight="bold" mt="1">
           Tower
         </Text>
       </HStack>
 
-      <Box position="absolute" left="50%" transform="translateX(-50%)">
+      <Box
+        position="absolute"
+        left="50%"
+        transform="translateX(-50%)"
+        hideBelow="lg"
+      >
         <Tabs.Root
           value={normalizedPath}
           onValueChange={handleTabChanged}
@@ -39,21 +57,15 @@ const NavBar = () => {
         >
           <Tabs.List bg="bg.muted" rounded="l3" p="1">
             <Tabs.Trigger value="/welcome">
-              <Icon boxSize="5">
-                <LuSun />
-              </Icon>
+              <Box as={LuSun} boxSize="5" />
               Welcome
             </Tabs.Trigger>
             <Tabs.Trigger value="/tos">
-              <Icon boxSize="5">
-                <LuShieldCheck />
-              </Icon>
+              <Box as={LuShieldCheck} boxSize="5" />
               TOS
             </Tabs.Trigger>
             <Tabs.Trigger value="/dashboard">
-              <Icon boxSize="5">
-                <LuLayoutDashboard />
-              </Icon>
+              <Box as={LuLayoutDashboard} boxSize="5" />
               Dashboard
             </Tabs.Trigger>
             <Tabs.Indicator rounded="l2" />
