@@ -9,6 +9,7 @@ import {
 import { LuSun, LuShieldCheck, LuLayoutDashboard } from 'react-icons/lu';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TowerIcon from '../assets/react.svg';
+import { ColorModeButton } from './ui/color-mode';
 
 const NavBar = () => {
   const location = useLocation();
@@ -52,6 +53,7 @@ const NavBar = () => {
       </Box>
 
       <Box flex="1" />
+      <ColorModeButton marginRight="4"></ColorModeButton>
     </HStack>
   );
 };
