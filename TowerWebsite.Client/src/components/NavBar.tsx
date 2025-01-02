@@ -4,6 +4,7 @@ import {
   Text,
   Tabs,
   Box,
+  Icon,
   SegmentGroupValueChangeDetails,
 } from '@chakra-ui/react';
 import { LuSun, LuShieldCheck, LuLayoutDashboard } from 'react-icons/lu';
@@ -22,10 +23,12 @@ const NavBar = () => {
   };
 
   return (
-    <HStack w="100%" justify="space-between" p={4}>
-      <HStack flex="1">
+    <HStack w="100%" justify="space-between" p="3">
+      <HStack flex="1" gap="4" marginLeft="1">
         <Image src={TowerIcon} boxSize="15" />
-        <Text>Tower</Text>
+        <Text textStyle="xl" fontWeight="bold" mt="1">
+          Tower
+        </Text>
       </HStack>
 
       <Box position="absolute" left="50%" transform="translateX(-50%)">
@@ -36,15 +39,21 @@ const NavBar = () => {
         >
           <Tabs.List bg="bg.muted" rounded="l3" p="1">
             <Tabs.Trigger value="/welcome">
-              <LuSun />
+              <Icon boxSize="5">
+                <LuSun />
+              </Icon>
               Welcome
             </Tabs.Trigger>
             <Tabs.Trigger value="/tos">
-              <LuShieldCheck />
+              <Icon boxSize="5">
+                <LuShieldCheck />
+              </Icon>
               TOS
             </Tabs.Trigger>
             <Tabs.Trigger value="/dashboard">
-              <LuLayoutDashboard />
+              <Icon boxSize="5">
+                <LuLayoutDashboard />
+              </Icon>
               Dashboard
             </Tabs.Trigger>
             <Tabs.Indicator rounded="l2" />
